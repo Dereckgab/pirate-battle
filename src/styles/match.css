@@ -1,0 +1,222 @@
+/* The arena keeps its 1600x896 aspect ratio and is letterboxed inside the viewport.
+   HUD and touch controls are positioned inside the same frame, so nothing is ever cropped. */
+
+.match-stage {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #0b1826;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.arena-frame {
+  position: relative;
+  width: min(100vw, 100dvh * 1600 / 896);
+  aspect-ratio: 1600 / 896;
+  container-type: size;
+  overflow: hidden;
+  background: #1d6fa5;
+}
+
+.arena-canvas,
+.arena-canvas canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hud,
+.touch-controls,
+.match-overlay {
+  font-size: clamp(8px, 1.15cqw, 18px);
+}
+
+/* --- HUD ------------------------------------------------------------------------------------ */
+
+.hud {
+  position: absolute;
+  inset: 0;
+  padding: 1em 1.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  font-weight: 800;
+  color: #fff7df;
+}
+
+.hud__health {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.hud__heart {
+  width: 2.6em;
+}
+
+.hud__bar {
+  position: relative;
+  width: 16em;
+  aspect-ratio: 256 / 48;
+}
+
+.hud__bar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hud__bar-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  font-size: 0.95em;
+  text-shadow: 0 0.08em 0.15em rgb(0 0 0 / 80%);
+}
+
+.hud__counters {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+
+.hud__counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  width: 9em;
+  aspect-ratio: 160 / 56;
+  padding-bottom: 0.1em;
+  background: url('/assets/ui@2x/hud/counter_panel.png') center / 100% 100% no-repeat;
+  font-size: 1.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.hud__counter img {
+  width: 1.5em;
+}
+
+.hud__pause {
+  pointer-events: auto;
+  width: clamp(40px, 3.6em, 64px);
+  height: clamp(40px, 3.6em, 64px);
+}
+
+/* --- Touch controls ------------------------------------------------------------------------- */
+
+.touch-controls {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.touch-cluster {
+  position: absolute;
+  bottom: 1.4em;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: end;
+  gap: 0.6em;
+}
+
+.touch-cluster--steer {
+  left: 1.6em;
+}
+
+.touch-cluster--fire {
+  right: 1.6em;
+}
+
+.touch-button {
+  pointer-events: auto;
+  width: clamp(46px, 4.6em, 76px);
+  height: clamp(46px, 4.6em, 76px);
+  padding: clamp(11px, 1.1em, 18px);
+  opacity: 0.92;
+  touch-action: none;
+}
+
+/* The middle button of each cluster sits higher, like the reference layout. */
+.touch-button--forward,
+.touch-button--fireFront {
+  margin-bottom: clamp(26px, 2.6em, 44px);
+}
+
+/* --- Overlays ------------------------------------------------------------------------------- */
+
+.match-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.9em;
+  padding: 2em;
+  background: rgb(11 24 38 / 82%);
+  font-size: clamp(12px, 1.6cqw, 20px);
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-cream);
+}
+
+.match-overlay progress {
+  width: 18em;
+  height: 1em;
+  accent-color: var(--color-gold);
+}
+
+.match-overlay__detail {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.rotate-hint {
+  display: none;
+}
+
+@media (orientation: portrait) and (max-width: 900px) {
+  .rotate-hint {
+    position: absolute;
+    inset: auto 0 12%;
+    display: grid;
+    place-items: center;
+    padding: 1em;
+    font-size: var(--u);
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-cream);
+  }
+}
+
+.pause-dialog {
+  max-width: none;
+  max-height: none;
+  padding: 0.5em;
+  border: 0;
+  background: transparent;
+  color: var(--color-cream);
+  font-size: var(--u);
+  overflow: visible;
+}
+
+.pause-dialog::backdrop {
+  background: rgb(8 18 30 / 62%);
+}
+
+.match-fallback {
+  font-size: var(--u);
+  font-weight: 700;
+  color: var(--color-cream);
+}

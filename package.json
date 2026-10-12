@@ -1,0 +1,43 @@
+{
+  "name": "pirate-battle",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "lint": "oxlint",
+    "typecheck": "tsc -b --noEmit",
+    "atlas": "node scripts/convert-atlas.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:update": "playwright test --update-snapshots",
+    "test:report": "playwright show-report",
+    "perf": "node scripts/perf-profile.mjs"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.104.2",
+    "axios": "^1.20.0",
+    "msw": "^3.0.3",
+    "pixi.js": "^8.22.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}

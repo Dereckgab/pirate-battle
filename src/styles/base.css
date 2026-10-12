@@ -1,0 +1,107 @@
+:root {
+  --color-ink: #10202f;
+  --color-navy: #16263a;
+  --color-navy-light: #22384f;
+  --color-cream: #f8e7bd;
+  --color-gold: #ffd166;
+  --color-muted: #c3d0dc;
+  --color-wood: #3d2208;
+  --color-danger: #ffb4a8;
+  --color-success: #b9f0b0;
+  --focus-ring: 0 0 0 0.2em #ffffff, 0 0 0 0.4em #1b62c4;
+
+  /* One "UI unit". Menus are laid out in em and scale as a whole with the viewport. */
+  --u: clamp(9px, min(100vw / 52, 100dvh / 44), 18px);
+
+  font-family: 'Trebuchet MS', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--color-cream);
+  background: var(--color-ink);
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (orientation: portrait) {
+  :root {
+    --u: clamp(9px, min(100vw / 30, 100dvh / 46), 18px);
+  }
+}
+
+/* Short landscape screens (phones): fewer, larger units and side-by-side layouts. */
+@media (orientation: landscape) and (max-height: 560px) {
+  :root {
+    --u: clamp(9px, min(100vw / 56, 100dvh / 29), 18px);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+h1,
+h2,
+p,
+dl,
+dd,
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 0.18em solid #ffffff;
+  outline-offset: 0.15em;
+  box-shadow: 0 0 0 0.45em rgb(16 32 47 / 85%);
+  border-radius: 0.4em;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

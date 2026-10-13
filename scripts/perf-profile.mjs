@@ -198,8 +198,8 @@ ${memoryRows}
 - One run per configuration on a single machine; results will vary with hardware and load.
 - The player is indestructible and driven by scripted input, so the load is representative
   but it is not a recording of a human match.
-- Isolated long frames occur (see "Max frame"), a few per match, while the average and the
-  95th percentile stay at the 60 FPS budget (16.7 ms).
+- Long frames do occur (see "Max frame"; how many was not counted). The average stays at
+  60 FPS and the 95th percentile is within about 1 ms of the 16.7 ms budget.
 - GPU memory is not visible to these measurements.
 - The JS heap keeps a small residual growth per cycle; see MEMORY-INVESTIGATION.md.
 `,

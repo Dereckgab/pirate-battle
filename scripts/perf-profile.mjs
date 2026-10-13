@@ -190,6 +190,18 @@ Measured on the main menu after a forced garbage collection (\`HeapProfiler.coll
 | Sample | JS heap used (MB) | DOM nodes | Event listeners | Canvases |
 |---|---|---|---|---|
 ${memoryRows}
+
+## Limitations observed
+
+- Measured in headless Chromium using the laptop's integrated GPU, at 1920x1080 with a device
+  pixel ratio of 1. A visible window, a high-density display or a phone were not profiled.
+- One run per configuration on a single machine; results will vary with hardware and load.
+- The player is indestructible and driven by scripted input, so the load is representative
+  but it is not a recording of a human match.
+- Isolated long frames occur (see "Max frame"), a few per match, while the average and the
+  95th percentile stay at the 60 FPS budget (16.7 ms).
+- GPU memory is not visible to these measurements.
+- The JS heap keeps a small residual growth per cycle; see MEMORY-INVESTIGATION.md.
 `,
   )
   console.log(`Wrote ${OUT_DIR}/PROFILE.md`)

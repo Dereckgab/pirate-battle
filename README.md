@@ -7,7 +7,7 @@ Built with **React 19**, **TypeScript (strict)** and **PixiJS 8**. Ranking and m
 REST APIs mocked at the network layer with **MSW**, consumed through **Axios** and
 **TanStack Query**, and covered end to end with **Playwright**.
 
-- Live demo: _add the deployed URL here_
+- Live demo: https://pirate-battle-two-rouge.vercel.app
 - Architecture and design decisions: [ARCHITECTURE.md](ARCHITECTURE.md)
 - Performance evidence: [docs/performance/PROFILE.md](docs/performance/PROFILE.md) and
   [docs/performance/MEMORY-INVESTIGATION.md](docs/performance/MEMORY-INVESTIGATION.md)

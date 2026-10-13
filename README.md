@@ -8,6 +8,7 @@ REST APIs mocked at the network layer with **MSW**, consumed through **Axios** a
 **TanStack Query**, and covered end to end with **Playwright**.
 
 - Live demo: https://pirate-battle-two-rouge.vercel.app
+- Delivery estimate: within the two-day deadline set for the challenge
 - Architecture and design decisions: [ARCHITECTURE.md](ARCHITECTURE.md)
 - Performance evidence: [docs/performance/PROFILE.md](docs/performance/PROFILE.md) and
   [docs/performance/MEMORY-INVESTIGATION.md](docs/performance/MEMORY-INVESTIGATION.md)
